@@ -1,0 +1,46 @@
+@import url("./button-menu.css");
+@import url("./container.css");
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 20px;
+  border-bottom: 1px solid #867070;
+}
+.logo {
+  width: auto;
+  height: 50px;
+  border-radius: 50%;
+}
+.header-time {
+  display: flex;
+  flex: 1;
+  margin-left: 2rem;
+}
+.header-time span {
+  margin-left: 4px;
+}
+.header-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  padding: 16px 16px;
+  border-radius: 32px;
+  align-items: flex-end;
+  cursor: pointer;
+  border: none;
+  background-color: #d5b4b4;
+}
+/* section menu */
+.container-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #867070;
+}
+footer {
+  display: flex;
+  justify-content: center;
+}

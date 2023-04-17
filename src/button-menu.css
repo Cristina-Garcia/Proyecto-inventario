@@ -1,0 +1,14 @@
+.button-menu {
+  background-color: #d5b4b4;
+  color: black;
+  border: none;
+  padding: 16px 18px;
+  box-sizing: border-box;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.button-menu:hover {
+  background-color: #f5ebeb;
+  font-size: 0.75rem;
+}

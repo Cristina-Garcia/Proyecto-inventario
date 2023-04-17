@@ -1,0 +1,15 @@
+:root {
+  font-family: "Roboto Slab", serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+#root {
+  height: 100vh;
+  width: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  background-color: #f5ebeb;
+  color: black;
+}
