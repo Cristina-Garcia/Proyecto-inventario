@@ -1,0 +1,19 @@
+.tools-page {
+  display: flex;
+  width: calc(100vw - 40px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tools-header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  list-style: none;
+}

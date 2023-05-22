@@ -1,13 +1,21 @@
-.container {
+/* .container {
   display: grid;
-  height: 80%;
+  height: calc(100vh - 150px);
   grid-template-columns: 300px 1fr;
-}
+} */
 .container-main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  /* gap: 8px; */
+}
+/* section menu */
+.container-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #867070;
+  height: 100%;
 }
 .card {
   display: flex;
@@ -29,4 +37,10 @@
 .card img {
   height: 150px;
   width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .container-main {
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,9 @@
+.layout {
+  /* display: flex;
+  align-items: center; */
+  display: grid;
+  height: calc(100vh - 150px);
+  grid-template-columns: 300px 1fr;
+}
+
+/* flex flex-col items-center mt-20 */

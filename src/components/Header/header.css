@@ -1,18 +1,20 @@
-@import url("./button-menu.css");
-@import url("./container.css");
 /* Header */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin: 20px;
+  padding: 20px;
   border-bottom: 1px solid #867070;
+  height: 80px;
+  box-sizing: border-box;
+  z-index: 10;
 }
 .logo {
   width: auto;
   height: 50px;
   border-radius: 50%;
+  cursor: pointer;
 }
 .header-time {
   display: flex;
@@ -33,14 +35,4 @@
   cursor: pointer;
   border: none;
   background-color: #d5b4b4;
-}
-/* section menu */
-.container-menu {
-  display: flex;
-  flex-direction: column;
-  background-color: #867070;
-}
-footer {
-  display: flex;
-  justify-content: center;
 }

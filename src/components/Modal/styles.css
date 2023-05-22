@@ -1,0 +1,67 @@
+.modal-background {
+  background: rgba(227, 205, 205, 0.8);
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  z-index: 11;
+}
+
+.modal-container-form {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+.modal-form input {
+  padding: 5px 0;
+  text-align: center;
+  width: calc(100% - 5px);
+}
+.modal-form select {
+  padding: 5px;
+  cursor: pointer;
+}
+.modal-form label {
+  font-size: 16px;
+  text-align: center;
+}
+.form-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: calc(50% - 2.5px) calc(50% - 2.5px);
+  grid-template-rows: 1fr 1fr;
+  flex-wrap: wrap;
+  gap: 5px;
+  box-sizing: border-box;
+}
+.button-form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #d5b4b4;
+  padding: 16px 18px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button-form:hover {
+  background-color: #867070;
+}
