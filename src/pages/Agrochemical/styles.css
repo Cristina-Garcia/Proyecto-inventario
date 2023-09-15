@@ -1,25 +1,51 @@
 .agrochemical-page {
   display: flex;
-  width: calc(100vw - 40px);
-  justify-content: center;
+  width: 100vw;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
-.agrochimical-header {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 20px;
+.container {
+  border-bottom: 1px solid #867070;
+}
+.agrochemical-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0;
+  width: 100%;
+  position: relative;
+}
 
+.agrochemical-header h3 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.agrochemical-header select {
+  position: absolute;
+  right: 0;
+  background-color: #d5b4b4;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.agrochemical-header-info tr {
+  display: flex;
+  gap: 2rem;
   align-items: center;
   text-align: center;
-  width: 100%;
   list-style: none;
+  padding: 0;
+  font-size: 14px;
 }
 
-.agrochimical-header li:nth-child(1) {
+.agrochemical-header-info tr:nth-child(1) {
   cursor: pointer;
 }
 
@@ -27,7 +53,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
 }
 
 .button-back {
@@ -42,8 +73,16 @@
 }
 
 .icon-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #d5b4b4;
   width: 50px;
   height: 50px;
   cursor: pointer;
+}
+
+.icon-add .add {
+  height: 100%;
+  width: 100%;
 }

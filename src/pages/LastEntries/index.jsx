@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-
 import Layout from "../../components/Layout";
 import "./styles.css";
+
 function LastEntries() {
   const linkStyle = {
     textDecoration: "none",

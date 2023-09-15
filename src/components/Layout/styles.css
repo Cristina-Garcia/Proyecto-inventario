@@ -1,9 +1,9 @@
 .layout {
-  /* display: flex;
-  align-items: center; */
   display: grid;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 125px);
+  width: 100vw;
   grid-template-columns: 300px 1fr;
+  /* border: 2px solid red; */
 }
 
 /* flex flex-col items-center mt-20 */

@@ -19,6 +19,14 @@
   align-items: center;
   justify-content: center;
 }
+.modal-container-form textarea {
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #867070;
+  box-sizing: border-box;
+  resize: none;
+}
 .modal-form {
   display: flex;
   flex-direction: column;
@@ -29,14 +37,18 @@
 .modal-form input {
   padding: 5px 0;
   text-align: center;
-  width: calc(100% - 5px);
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #867070;
 }
 .modal-form select {
+  width: 100%;
   padding: 5px;
   cursor: pointer;
+  border: 1px solid #867070;
 }
 .modal-form label {
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
 }
 .form-grid {
@@ -54,10 +66,10 @@
   align-items: center;
   justify-content: center;
   background-color: #d5b4b4;
-  padding: 16px 18px;
+  padding: 10px;
   margin-top: 10px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   text-align: center;
 }

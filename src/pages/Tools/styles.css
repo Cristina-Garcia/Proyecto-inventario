@@ -1,14 +1,40 @@
 .tools-page {
   display: flex;
-  width: calc(100vw - 40px);
-  justify-content: center;
+  width: 100vw;
+
   align-items: center;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 20px;
   box-sizing: border-box;
+  position: relative;
+}
+.container {
+  border-bottom: 1px solid #867070;
+}
+.tools-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0;
+  width: 100%;
+  position: relative;
 }
 
-.tools-header {
+.tools-header h3 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tools-header select {
+  position: absolute;
+  right: 0;
+  background-color: #d5b4b4;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.tools-header-info {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
@@ -16,4 +42,10 @@
   text-align: center;
   width: 100%;
   list-style: none;
+  font-size: 14px;
+  padding: 20px 0;
 }
+
+/* .interactive-buttons {
+  margin-bottom: 1rem;
+} */

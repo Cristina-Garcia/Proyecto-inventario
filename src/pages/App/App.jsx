@@ -6,6 +6,8 @@ import LastEntries from "../LastEntries";
 import LastDepartures from "../LastDepartures";
 import Tools from "../Tools";
 import Agrochemical from "../Agrochemical";
+import ProductsLocalStorageProvider from "../../context";
+
 import "./App.css";
 
 function AppRoutes() {
@@ -21,11 +23,13 @@ function AppRoutes() {
 }
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <AppRoutes />
-      <Footer />
-    </BrowserRouter>
+    <ProductsLocalStorageProvider>
+      <BrowserRouter>
+        <Header />
+        <AppRoutes />
+        <Footer />
+      </BrowserRouter>
+    </ProductsLocalStorageProvider>
   );
 }
 

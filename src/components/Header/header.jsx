@@ -1,14 +1,15 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { IoIosArrowDropdown } from "react-icons/io";
-import logo from "../../images/logo.jpg";
-import "./header.css";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { IoIosArrowDropdown } from 'react-icons/io'
+import logo from '../../assets/images/logo.jpg'
+import './header.css'
 
 function Header() {
-  const fecha = new Date();
-  const yearActual = fecha.getFullYear();
-  const hoy = fecha.getDate();
-  const mesActual = fecha.getMonth();
+  const fecha = new Date()
+  const yearActual = fecha.getFullYear()
+  const hoy = fecha.getDate()
+  const mesActual = fecha.getUTCMonth() + 1
+
   return (
     <header className="header">
       <NavLink to="/">
@@ -30,7 +31,7 @@ function Header() {
         <IoIosArrowDropdown />
       </button>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

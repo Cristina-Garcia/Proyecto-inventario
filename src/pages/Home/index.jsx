@@ -1,14 +1,13 @@
-import { NavLink } from "react-router-dom";
-import imgagroquimicos from "../../images/agroquimicos.jpg";
-import imgherramientas from "../../images/herramientas.jpg";
-import Layout from "../../components/Layout";
-// import openModalAgroquimicos from "../../components/Card/agroquimicos";
+import { NavLink } from 'react-router-dom'
+import imgagroquimicos from '../../assets/images/agroquimicos.jpg'
+import imgherramientas from '../../assets/images/herramientas.jpg'
+import Layout from '../../components/Layout'
 
 function Home() {
   const linkStyle = {
-    textDecoration: "none",
-    color: "black",
-  };
+    textDecoration: 'none',
+    color: 'black',
+  }
 
   return (
     <Layout>
@@ -22,10 +21,7 @@ function Home() {
       </section>
       <section className="container-main">
         <NavLink to="/agrochemical" style={linkStyle}>
-          <figure
-            className="card card-agroquimicos"
-            // onClick={openModalAgroquimicos}
-          >
+          <figure className="card card-agroquimicos">
             <p>Agroquimicos</p>
             <img
               src={imgagroquimicos}
@@ -44,7 +40,7 @@ function Home() {
         </NavLink>
       </section>
     </Layout>
-  );
+  )
 }
 
-export default Home;
+export default Home
