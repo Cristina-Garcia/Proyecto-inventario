@@ -1,43 +1,20 @@
-import React, { useContext, useState } from "react";
-import { ProductsContext } from "../../context";
-import "./styles.css";
+import React from 'react'
+import { useForm } from '../../hooks/useForm'
+import './styles.css'
 
+const agrochemical = {
+  productName: '',
+  ingredient: '',
+  type: '',
+  presentation: '',
+  units: '',
+  lot: '',
+  supplier: '',
+  expirationDate: '',
+  admissionDate: new Date().toLocaleString(),
+}
 function AgrochemicalModal({ onClose }) {
-  const context = useContext(ProductsContext);
-
-  const [newProduct, setNewProduct] = useState({
-    productName: "",
-    ingredient: "",
-    type: "",
-    presentation: "",
-    units: "",
-    lot: "",
-    supplier: "",
-    expirationDate: "",
-  });
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    context.addProduct(newProduct);
-    setNewProduct({
-      productName: "",
-      ingredient: "",
-      type: "",
-      presentation: "",
-      units: "",
-      lot: "",
-      supplier: "",
-      expirationDate: "",
-    });
-    context.showProduct();
-  }
-
-  function handleChange(event) {
-    setNewProduct({
-      ...newProduct,
-      [event.target.name]: event.target.value,
-    });
-  }
+  const { formData, handleChange, handleSubmit } = useForm(agrochemical)
 
   return (
     <div className="modal-background">
@@ -52,7 +29,7 @@ function AgrochemicalModal({ onClose }) {
           <input
             type="text"
             name="productName"
-            value={newProduct.productName}
+            value={formData.productName}
             onChange={handleChange}
             required
             placeholder="Nombre común"
@@ -60,7 +37,7 @@ function AgrochemicalModal({ onClose }) {
           <input
             type="text"
             name="ingredient"
-            value={newProduct.ingredient}
+            value={formData.ingredient}
             onChange={handleChange}
             required
             placeholder="Ingrediente Activo"
@@ -68,7 +45,7 @@ function AgrochemicalModal({ onClose }) {
           <select
             required
             name="type"
-            value={newProduct.type}
+            value={formData.type}
             onChange={handleChange}
           >
             <option value="">Tipo</option>
@@ -85,7 +62,7 @@ function AgrochemicalModal({ onClose }) {
             <select
               name="presentation"
               id=""
-              value={newProduct.presentation}
+              value={formData.presentation}
               onChange={handleChange}
               required
             >
@@ -93,11 +70,11 @@ function AgrochemicalModal({ onClose }) {
               <option value="Kilogramo">Kilogramo</option>
               <option value="Litro">Litro</option>
             </select>
- 
+
             <input
               type="number"
               name="units"
-              value={newProduct.units}
+              value={formData.units}
               onChange={handleChange}
               placeholder="Unidades"
               required
@@ -105,7 +82,7 @@ function AgrochemicalModal({ onClose }) {
             <input
               type="text"
               name="lot"
-              value={newProduct.lot}
+              value={formData.lot}
               onChange={handleChange}
               placeholder="Lote"
               required
@@ -113,7 +90,7 @@ function AgrochemicalModal({ onClose }) {
             <input
               type="text"
               name="supplier"
-              value={newProduct.supplier}
+              value={formData.supplier}
               onChange={handleChange}
               placeholder="Proveedor"
               required
@@ -123,7 +100,7 @@ function AgrochemicalModal({ onClose }) {
           <input
             type="date"
             name="expirationDate"
-            value={newProduct.expirationDate}
+            value={formData.expirationDate}
             onChange={handleChange}
             required
             id="date"
@@ -137,7 +114,7 @@ function AgrochemicalModal({ onClose }) {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default AgrochemicalModal;
+export default AgrochemicalModal
