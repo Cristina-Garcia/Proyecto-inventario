@@ -1,29 +1,44 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { IoMdAddCircleOutline, IoIosArrowBack } from 'react-icons/io'
+import React, { useContext, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import {
+  IoMdAddCircleOutline,
+  IoIosArrowBack,
+  IoIosRemoveCircleOutline,
+} from 'react-icons/io'
 import './index.css'
 import { ProductsContext } from '../../context'
 
-function InteractiveButtons() {
+function InteractiveButtons({ basePath }) {
   const { setOpenModal } = useContext(ProductsContext)
+
   const linkStyle = {
     textDecoration: 'none',
     color: 'black',
   }
+  const location = useLocation()
+  const isEntryOrExit = location.pathname.includes(`${basePath}/`)
+
+  const backButtonPath = isEntryOrExit ? basePath : '/'
+  const addButton =
+    location.pathname === `${basePath}/entries` ? (
+      <IoMdAddCircleOutline
+        className="icon-add"
+        onClick={() => setOpenModal(true)}
+      />
+    ) : location.pathname === `${basePath}/exits` ? (
+      <IoIosRemoveCircleOutline className="icon-add" />
+    ) : null
+
+  console.log(location)
   return (
     <div className="interactive-buttons">
-      <Link to="/" style={linkStyle}>
+      <Link to={backButtonPath} style={linkStyle}>
         <button className="button-back">
           <IoIosArrowBack />
           Regresar
         </button>
       </Link>
-      <div>
-        <IoMdAddCircleOutline
-          className="icon-add"
-          onClick={() => setOpenModal(true)}
-        />
-      </div>
+      <div>{addButton}</div>
     </div>
   )
 }

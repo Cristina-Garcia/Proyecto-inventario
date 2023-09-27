@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export const ProductsContext = createContext()
 
@@ -48,6 +49,25 @@ function ProductsLocalStorageProvider({ children }) {
       id: '12fds-21-sda',
     },
   ])
+
+  const navigateTo = useNavigate()
+  const location = useLocation()
+
+  const redirectTo = (e) => {
+    if (location.pathname.includes('/agrochemical/')) {
+      if (e.target.value === 'Entradas') {
+        return navigateTo('/agrochemical/entries')
+      } else {
+        return navigateTo('/agrochemical/exits')
+      }
+    } else {
+      if (e.target.value === 'Entradas') {
+        return navigateTo('/tools/entries')
+      } else {
+        return navigateTo('/tools/exits')
+      }
+    }
+  }
   const closeModal = () => {
     setOpenModal(false)
   }
@@ -67,7 +87,7 @@ function ProductsLocalStorageProvider({ children }) {
       }
     }
   }
-  console.log('agroquimicos', agroquimicos)
+  // console.log('agroquimicos', agroquimicos)
 
   return (
     <ProductsContext.Provider
@@ -80,6 +100,7 @@ function ProductsLocalStorageProvider({ children }) {
         agroquimicos,
         setAgroquimicos,
         otherTools,
+        redirectTo,
       }}
     >
       {children}

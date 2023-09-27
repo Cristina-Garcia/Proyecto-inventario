@@ -6,7 +6,11 @@ import LastEntries from '../LastEntries'
 import LastDepartures from '../LastDepartures'
 import Tools from '../Tools'
 import Agrochemical from '../Agrochemical'
+import AgrochemicalEntries from '../AgroEntries'
+import AgrochemicalExits from '../AgroExits'
 import ProductsLocalStorageProvider from '../../context'
+import ToolsEntries from '../ToolsEntries'
+import ToolsExits from '../ToolExits'
 import './App.css'
 
 function AppRoutes() {
@@ -15,20 +19,30 @@ function AppRoutes() {
     { path: '/last-entries', element: <LastEntries /> },
     { path: '/last-departures', element: <LastDepartures /> },
     { path: '/tools', element: <Tools /> },
-    { path: '/agrochemical', element: <Agrochemical /> },
+    {
+      path: '/agrochemical',
+      element: <Agrochemical />,
+    },
+    { path: 'agrochemical/entries', element: <AgrochemicalEntries /> },
+    { path: 'agrochemical/exits', element: <AgrochemicalExits /> },
+    { path: 'tools/entries', element: <ToolsEntries /> },
+
+    { path: 'tools/exits', element: <ToolsExits /> },
+
     // { path: "/*", element: <NotFound /> },
   ])
   return routes
 }
+
 function App() {
   return (
-    <ProductsLocalStorageProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ProductsLocalStorageProvider>
         <Header />
         <AppRoutes />
         <Footer />
-      </BrowserRouter>
-    </ProductsLocalStorageProvider>
+      </ProductsLocalStorageProvider>
+    </BrowserRouter>
   )
 }
 

@@ -12,29 +12,7 @@
 .container {
   border-bottom: 1px solid #867070;
 }
-.agrochemical-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30px 0;
-  width: 100%;
-  position: relative;
-}
 
-.agrochemical-header h3 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.agrochemical-header select {
-  position: absolute;
-  right: 0;
-  background-color: #d5b4b4;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
 .agrochemical-header-info tr {
   display: flex;
   gap: 2rem;

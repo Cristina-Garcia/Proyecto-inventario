@@ -1,34 +1,31 @@
 import React, { useContext } from 'react'
-import { createPortal } from 'react-dom'
 import Layout from '../../components/Layout'
-import AgrochemicalModal from '../../components/AgrochemiclModalForm'
 import { ProductsContext } from '../../context'
 import TableAgroEntries from '../../components/TableAgro'
+import Select from '../../components/SelectComponent'
 import InteractiveButtons from '../../components/InteractiveButtons'
 import './styles.css'
 
 function Agrochemical() {
-  const { openModal, closeModal, agroquimicos } = useContext(ProductsContext)
+  const { agroquimicos, isActiveEntries, redirectTo } =
+    useContext(ProductsContext)
 
-  // const { addProduct, saveProducts } = useProducts();
+  const productsToShow =
+    agroquimicos.length > 5 ? products.slice(0, 5) : agroquimicos
 
   return (
     <Layout>
       <div className="agrochemical-page">
         <div className="agrochemical-header">
           <h3>Agroquímicos</h3>
-          <select name="" id="">
-            <option value="Entradas">Entradas</option>
-            <option value="Salidas">Salidas</option>
-          </select>
+          <Select redirectTo={redirectTo} />
         </div>
-        <TableAgroEntries products={agroquimicos} />
+        <TableAgroEntries
+          products={productsToShow}
+          isActiveEntries={isActiveEntries}
+        />
         <InteractiveButtons />
-        {openModal &&
-          createPortal(
-            <AgrochemicalModal onClose={() => closeModal()} />,
-            document.body
-          )}
+
         {/* {context.openModal && (
           <AgrochemicalModal onClose={() => context.closeModal()} />
         )} */}
