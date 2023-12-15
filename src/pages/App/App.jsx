@@ -8,6 +8,7 @@ import Tools from '../Tools'
 import Agrochemical from '../Agrochemical'
 import ProductsLocalStorageProvider from '../../context'
 import './App.css'
+import AgroDepartures from '../ToolsDepartures'
 
 function AppRoutes() {
   let routes = useRoutes([
@@ -15,7 +16,16 @@ function AppRoutes() {
     { path: '/last-entries', element: <LastEntries /> },
     { path: '/last-departures', element: <LastDepartures /> },
     { path: '/tools', element: <Tools /> },
-    { path: '/agrochemical', element: <Agrochemical /> },
+    {
+      path: '/agrochemical',
+      element: <Agrochemical />,
+      children: [
+        {
+          path: '/agrochemical/departures',
+          element: <AgroDepartures />,
+        },
+      ],
+    },
     // { path: "/*", element: <NotFound /> },
   ])
   return routes
