@@ -1,29 +1,26 @@
 import { useContext, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Link } from 'react-router-dom'
+// import { ProductsContext } from '../../context'
+import { DataContext } from '../../context'
+
 import Layout from '../../components/Layout'
 import ToolsModal from '../../components/ToolsModalForm'
-import './styles.css'
 import TableToolsEntries from '../../components/TableTools'
-import { ProductsContext } from '../../context'
 import InteractiveButtons from '../../components/InteractiveButtons'
+import Select from '../../components/SelectComponent'
+import './styles.css'
 
 function Tools() {
-  const { otherTools, openModal, setOpenModal } = useContext(ProductsContext)
-
+  // const { otherTools, openModal, setOpenModal, redirectTo } =
+  //   useContext(ProductsContext)
+  const { otherTools, openModal, setOpenModal, redirectTo } =
+    useContext(DataContext)
   return (
     <Layout>
       <div className="tools-page">
         <div className="tools-header">
           <h3>Herramientas</h3>
-          <select name="" id="">
-            <option value="Entradas">
-              <Link>Entradas</Link>
-            </option>
-            <option value="Salidas">
-              <Link>Salidas</Link>
-            </option>
-          </select>
+          <Select redirectTo={redirectTo} />
         </div>
         <TableToolsEntries products={otherTools} />
         <InteractiveButtons />

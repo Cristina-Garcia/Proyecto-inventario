@@ -32,7 +32,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function TableAgroEntries({ products }) {
   // const product = products.length > 1 ? products.map((product) => product) : ''
   // console.log(products)
-  const productos = products.length > 5 ? products.slice(0, 5) : products
 
   return (
     <TableContainer component={Paper}>
@@ -51,30 +50,32 @@ export default function TableAgroEntries({ products }) {
             <StyledTableCell align="center">Ingrediente activo</StyledTableCell>
             <StyledTableCell align="center">Fecha de Caducidad</StyledTableCell>
             <StyledTableCell align="center">Unidades</StyledTableCell>
-            <StyledTableCell align="center">presentación</StyledTableCell>
+            <StyledTableCell align="center">Presentación</StyledTableCell>
             <StyledTableCell align="center">Lote</StyledTableCell>
             <StyledTableCell align="center">Tipo</StyledTableCell>
             <StyledTableCell align="center">Proveedor</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {productos.map((row) => (
-            <StyledTableRow key={row.id}>
+          {products.map((row) => (
+            <StyledTableRow key={row.product_id}>
               <StyledTableCell component="th" scope="row">
-                {row.id}
+                {row.product_id}
               </StyledTableCell>
-              <StyledTableCell align="left">{row.productName}</StyledTableCell>
-              <StyledTableCell align="left">{row.ingredient}</StyledTableCell>
+              <StyledTableCell align="left">{row.Nombre_común}</StyledTableCell>
+              <StyledTableCell align="left">
+                {row.Ingrediente_activo}
+              </StyledTableCell>
               <StyledTableCell align="right">
-                {row.expirationDate}
+                {row.Fecha_de_Caducidad}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.units}</StyledTableCell>
+              <StyledTableCell align="right">{row.Unidades}</StyledTableCell>
               <StyledTableCell align="right">
-                {row.presentation}
+                {row.Presentación}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.lot}</StyledTableCell>
-              <StyledTableCell align="right">{row.type}</StyledTableCell>
-              <StyledTableCell align="left">{row.supplier}</StyledTableCell>
+              <StyledTableCell align="right">{row.Lote}</StyledTableCell>
+              <StyledTableCell align="right">{row.Tipo}</StyledTableCell>
+              <StyledTableCell align="left">{row.Proveedor}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

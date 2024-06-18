@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react'
-import { ProductsContext } from '../context'
-
+import { DataContext } from '../context'
+// import {ProductsContext} from '../context'
 export const useForm = (initialValues) => {
-  const { showProduct } = useContext(ProductsContext)
+  const { showProduct } = useContext(DataContext)
   const [formData, setFormData] = useState(initialValues)
 
   const handleChange = (e) => {

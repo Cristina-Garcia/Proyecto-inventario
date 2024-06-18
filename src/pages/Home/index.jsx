@@ -20,7 +20,7 @@ function Home() {
         </NavLink>
       </section>
       <section className="container-main">
-        <Link to="/agrochemical" style={linkStyle}>
+        <Link to="/agrochemical/entries" style={linkStyle}>
           <figure className="card card-agroquimicos">
             <p>Agroquimicos</p>
             <img
@@ -29,7 +29,7 @@ function Home() {
             />
           </figure>
         </Link>
-        <Link to="/tools" style={linkStyle}>
+        <Link to="/tools/entries" style={linkStyle}>
           <figure className="card card-herramientas">
             <p>Herramientas y otros productos</p>
             <img
