@@ -14,36 +14,36 @@ export const DataContext = createContext()
 //   const newId = uuidv4()
 //   const [agroquimicos, setAgroquimicos] = useState([
 //     {
-//       productName: 'Progranic CinnAcar',
-//       ingredient: 'Extracto de canela',
-//       expirationDate: '01/09/2024',
+//       Nombre_común: 'Progranic CinnAcar',
+//       Ingrediente_activo: 'Extracto de canela',
+//       Fecha_de_caducidad: '01/09/2024',
 //       units: '5',
-//       presentation: 'Litros',
-//       lot: '123acv',
-//       type: 'Insecticida',
-//       supplier: 'CIASA AGRO',
-//       id: '1DEFWF',
+//       Presentación: 'Litros',
+//       Lote: '123acv',
+//       Tipo: 'Insecticida',
+//       Proveedor: 'CIASA AGRO',
+//       product_id: '1DEFWF',
 //     },
 //     {
-//       productName: 'Phc meta tron',
-//       ingredient: 'Metarhizium anisopliae Cepa Abn Ma 201',
-//       expirationDate: '01/09/2024',
-//       units: '1',
-//       presentation: 'Kilos',
-//       lot: '123acv',
-//       type: 'Insecticida',
-//       supplier: 'FEBEA BIO',
-//       id: 'dedbihqed',
+//       Nombre_común: 'Phc meta tron',
+//       Ingrediente_activo: 'Metarhizium anisopliae Cepa Abn Ma 201',
+//       Fecha_de_caducidad: '01/09/2024',
+//       Unidades: '1',
+//       Presentación: 'Kilos',
+//       Lote: '123acv',
+//       Tipo: 'Insecticida',
+//       Proveedor: 'FEBEA BIO',
+//       product_id: 'dedbihqed',
 //     },
 //   ])
 //   const [otherTools, setOtherTools] = useState([
 //     {
 //       toolName: 'Guantes de Nitrilo',
-//       units: 20,
+//       Unnidades: 20,
 //       supplier: 'uline',
 //       dateAdmission: '2023-15-10',
 //       notes: 'Prestamo de Rancho 1',
-//       id: '12fds-12-sd',
+//       product_id: '12fds-12-sd',
 //     },
 //     {
 //       toolName: 'Overol',
@@ -120,7 +120,6 @@ function ProductsFromDbProvider({ children }) {
     axios
       .get('http://localhost:3000/agroquimicos')
       .then((response) => {
-        console.log(response)
         setAgroquimicos(response.data)
       })
       .catch((error) => {

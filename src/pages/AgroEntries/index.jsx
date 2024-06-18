@@ -15,6 +15,8 @@ function AgrochemicalEntries() {
   //   useContext(ProductsContext)
   const { agroquimicos, openModal, closeModal, redirectTo } =
     useContext(DataContext)
+  const productsToShow =
+    agroquimicos.length > 15 ? agroquimicos.slice(0, 15) : agroquimicos
   return (
     <Box sx={{ p: 2, height: 'calc(100vh - 125px)' }}>
       <div className="agrochemical-header">
@@ -22,7 +24,7 @@ function AgrochemicalEntries() {
         <Select redirectTo={redirectTo} />
       </div>
       <div>
-        <TableAgroEntries products={agroquimicos} />
+        <TableAgroEntries products={productsToShow} />
         <InteractiveButtons basePath="/agrochemical" />
       </div>
       {openModal &&

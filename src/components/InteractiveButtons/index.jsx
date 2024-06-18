@@ -30,7 +30,7 @@ function InteractiveButtons({ basePath }) {
       <IoIosRemoveCircleOutline className="icon-add" />
     ) : null
 
-  console.log(location)
+  // console.log(location)
   return (
     <div className="interactive-buttons">
       <Link to={backButtonPath} style={linkStyle}>

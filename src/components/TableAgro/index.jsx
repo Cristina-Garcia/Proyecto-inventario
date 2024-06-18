@@ -57,27 +57,45 @@ export default function TableAgroEntries({ products }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map((row) => (
-            <StyledTableRow key={row.product_id}>
-              <StyledTableCell component="th" scope="row">
-                {row.product_id}
-              </StyledTableCell>
-              <StyledTableCell align="left">{row.Nombre_común}</StyledTableCell>
-              <StyledTableCell align="left">
-                {row.Ingrediente_activo}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {row.Fecha_de_Caducidad}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.Unidades}</StyledTableCell>
-              <StyledTableCell align="right">
-                {row.Presentación}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.Lote}</StyledTableCell>
-              <StyledTableCell align="right">{row.Tipo}</StyledTableCell>
-              <StyledTableCell align="left">{row.Proveedor}</StyledTableCell>
-            </StyledTableRow>
-          ))}
+          {products.map((row) => {
+            const truncatedId =
+              row.product_id.substring(0, 4) +
+              '...' +
+              row.product_id.substring(row.product_id.length - 4)
+
+            const isoDate = row.Fecha_de_Caducidad
+            const date = new Date(isoDate)
+            const day = String(date.getUTCDate()).padStart(2, '0') // getUTCDate para usar la fecha en UTC
+            const month = String(date.getUTCMonth() + 1).padStart(2, '0') // getUTCMonth es 0-indexado
+            const year = date.getUTCFullYear()
+
+            // Formatear la fecha como DDMMAAAA
+            const formattedDate = `${day}/${month}/${year}`
+
+            return (
+              <StyledTableRow key={row.product_id}>
+                <StyledTableCell component="th" scope="row">
+                  {truncatedId}
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  {row.Nombre_común}
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  {row.Ingrediente_activo}
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  {formattedDate}
+                </StyledTableCell>
+                <StyledTableCell align="center">{row.Unidades}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {row.Presentación}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.Lote}</StyledTableCell>
+                <StyledTableCell align="right">{row.Tipo}</StyledTableCell>
+                <StyledTableCell align="left">{row.Proveedor}</StyledTableCell>
+              </StyledTableRow>
+            )
+          })}
         </TableBody>
       </Table>
     </TableContainer>
