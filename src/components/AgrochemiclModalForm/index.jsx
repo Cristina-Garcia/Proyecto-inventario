@@ -1,17 +1,19 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import { useForm } from '../../hooks/useForm'
 import './styles.css'
 
 const agrochemical = {
-  productName: '',
-  ingredient: '',
-  type: '',
-  presentation: '',
-  units: '',
-  lot: '',
-  supplier: '',
-  expirationDate: '',
-  admissionDate: new Date().toLocaleString(),
+  Nombre_común: '',
+  Ingrediente_activo: '',
+  Tipo: '',
+  Presentación: '',
+  Unidades: '',
+  Lote: '',
+  Proveedor: '',
+  Fecha_de_caducidad: '',
+  product_id: uuidv4(),
+  Fecha_de_registro: new Date().toISOString().slice(0, 19).replace('T', ' '),
 }
 function AgrochemicalModal({ onClose }) {
   const { formData, handleChange, handleSubmit } = useForm(agrochemical)
@@ -28,24 +30,24 @@ function AgrochemicalModal({ onClose }) {
         >
           <input
             type="text"
-            name="productName"
-            value={formData.productName}
+            name="Nombre_común"
+            value={formData.Nombre_común}
             onChange={handleChange}
             required
             placeholder="Nombre común"
           />
           <input
             type="text"
-            name="ingredient"
-            value={formData.ingredient}
+            name="Ingrediente_activo"
+            value={formData.Ingrediente_activo}
             onChange={handleChange}
             required
             placeholder="Ingrediente Activo"
           />
           <select
             required
-            name="type"
-            value={formData.type}
+            name="Tipo"
+            value={formData.Tipo}
             onChange={handleChange}
           >
             <option value="">Tipo</option>
@@ -54,15 +56,16 @@ function AgrochemicalModal({ onClose }) {
             <option value="Fungicida">Fungicida</option>
             <option value="Nematicida">Nematicida</option>
             <option value="Herbicida">Herbicida</option>
-            <option value="Adherente o Surfactante">
-              Adherente o Surfactante
-            </option>
+            <option value="Coadyuvante">Coadyuvante</option>
+            <option value="Bioinsecticida">Bioinsecticida</option>
+            <option value="Biofungicida">Biofungicida</option>
+            <option value="Bionematicida">Bionematicida</option>
           </select>
           <div className="form-grid">
             <select
-              name="presentation"
+              name="Presentación"
               id=""
-              value={formData.presentation}
+              value={formData.Presentación}
               onChange={handleChange}
               required
             >
@@ -73,24 +76,24 @@ function AgrochemicalModal({ onClose }) {
 
             <input
               type="number"
-              name="units"
-              value={formData.units}
+              name="Unidades"
+              value={formData.Unidades}
               onChange={handleChange}
               placeholder="Unidades"
               required
             />
             <input
               type="text"
-              name="lot"
-              value={formData.lot}
+              name="Lote"
+              value={formData.Lote}
               onChange={handleChange}
               placeholder="Lote"
               required
             />
             <input
               type="text"
-              name="supplier"
-              value={formData.supplier}
+              name="Proveedor"
+              value={formData.Proveedor}
               onChange={handleChange}
               placeholder="Proveedor"
               required
@@ -99,8 +102,8 @@ function AgrochemicalModal({ onClose }) {
           <label htmlFor="date">Fecha de Caducidad</label>
           <input
             type="date"
-            name="expirationDate"
-            value={formData.expirationDate}
+            name="Fecha_de_caducidad"
+            value={formData.Fecha_de_caducidad}
             onChange={handleChange}
             required
             id="date"

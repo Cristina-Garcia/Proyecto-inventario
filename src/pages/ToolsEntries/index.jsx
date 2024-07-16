@@ -5,23 +5,22 @@ import { createPortal } from 'react-dom'
 import { DataContext } from '../../context'
 
 import TableToolsEntries from '../../components/TableTools'
-import Select from '../../components/SelectComponent'
 import InteractiveButtons from '../../components/InteractiveButtons'
 
 import ToolsModal from '../../components/ToolsModalForm'
 // import './index.css'
 import '../../assets/styles/index.css'
+import SelectLabels from '../../components/SelectComponent'
 
 function ToolsEntries() {
   // const { otherTools, openModal, closeModal, redirectTo } =
   //   useContext(ProductsContext)
-  const { otherTools, openModal, closeModal, redirectTo } =
-    useContext(DataContext)
+  const { otherTools, openModal, closeModal } = useContext(DataContext)
   return (
     <Box sx={{ p: 2, height: 'calc(100vh - 125px)' }}>
       <div className="agrochemical-header">
         <h3>ENTRADAS</h3>
-        <Select redirectTo={redirectTo} />
+        <SelectLabels />
       </div>
       <div>
         <TableToolsEntries products={otherTools} />

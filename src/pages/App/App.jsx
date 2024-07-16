@@ -20,11 +20,11 @@ function AppRoutes() {
     { path: '/', element: <Home /> },
     { path: '/last-entries', element: <LastEntries /> },
     { path: '/last-departures', element: <LastDepartures /> },
-    { path: '/tools', element: <Tools /> },
-    {
-      path: '/agrochemical',
-      element: <Agrochemical />,
-    },
+    // { path: '/tools', element: <Tools /> },
+    // {
+    //   path: '/agrochemical',
+    //   element: <Agrochemical />,
+    // },
     { path: 'agrochemical/entries', element: <AgrochemicalEntries /> },
     { path: 'agrochemical/exits', element: <AgrochemicalExits /> },
     { path: 'tools/entries', element: <ToolsEntries /> },

@@ -5,26 +5,26 @@ import { DataContext } from '../../context'
 // import { ProductsContext } from '../../context'
 import AgrochemicalModal from '../../components/AgrochemiclModalForm'
 import TableAgroEntries from '../../components/TableAgro'
-import Select from '../../components/SelectComponent'
 import InteractiveButtons from '../../components/InteractiveButtons'
 import './index.css'
 import '../../assets/styles/index.css'
+import SelectLabels from '../../components/SelectComponent'
 
 function AgrochemicalEntries() {
   // const { agroquimicos, openModal, closeModal, redirectTo } =
   //   useContext(ProductsContext)
   const { agroquimicos, openModal, closeModal, redirectTo } =
     useContext(DataContext)
-  const productsToShow =
-    agroquimicos.length > 15 ? agroquimicos.slice(0, 15) : agroquimicos
+  // const productsToShow =
+  //   agroquimicos.length > 20 ? agroquimicos.slice(0, 20) : agroquimicos
   return (
-    <Box sx={{ p: 2, height: 'calc(100vh - 125px)' }}>
+    <Box sx={{ p: 2, height: 'calc(100vh - 180px)' }}>
       <div className="agrochemical-header">
         <h3>ENTRADAS</h3>
-        <Select redirectTo={redirectTo} />
+        <SelectLabels redirectTo={redirectTo} />
       </div>
       <div>
-        <TableAgroEntries products={productsToShow} />
+        <TableAgroEntries products={agroquimicos} />
         <InteractiveButtons basePath="/agrochemical" />
       </div>
       {openModal &&

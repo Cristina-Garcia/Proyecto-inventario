@@ -19,7 +19,7 @@ function InteractiveButtons({ basePath }) {
   const location = useLocation()
   const isEntryOrExit = location.pathname.includes(`${basePath}/`)
 
-  const backButtonPath = isEntryOrExit ? basePath : '/'
+  const backButtonPath = isEntryOrExit ? '/' : `${basePath}/entries`
   const addButton =
     location.pathname === `${basePath}/entries` ? (
       <IoMdAddCircleOutline

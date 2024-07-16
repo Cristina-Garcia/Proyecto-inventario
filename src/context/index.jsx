@@ -1,11 +1,7 @@
 import { createContext, useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid'
-import { useLocation, useNavigate } from 'react-router-dom'
 
 /* ---- */
-import axios from 'axios'
-
-// export const ProductsContext = createContext()
+import { axiosClient } from '../service/axiosclient.js'
 
 export const DataContext = createContext()
 
@@ -115,10 +111,10 @@ export const DataContext = createContext()
 
 function ProductsFromDbProvider({ children }) {
   const [agroquimicos, setAgroquimicos] = useState([])
-
+  const [tools, setTools] = useState([])
   useEffect(() => {
-    axios
-      .get('http://localhost:3000/agroquimicos')
+    axiosClient
+      .get('/api/agroquimicos')
       .then((response) => {
         setAgroquimicos(response.data)
       })
@@ -143,8 +139,16 @@ function ProductsFromDbProvider({ children }) {
       } else {
         setOtherTools([...otherTools, { ...newData, id: newId }])
       }
+    } else {
+      const newData = JSON.parse(storedData)
+      if (Object.keys(newData).length === 9) {
+        setAgroquimicos([...agroquimicos])
+      } else {
+        setOtherTools([...otherTools])
+      }
     }
   }
+
   return (
     <DataContext.Provider
       value={{

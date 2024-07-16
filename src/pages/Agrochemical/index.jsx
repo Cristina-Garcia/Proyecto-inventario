@@ -11,7 +11,7 @@ import './styles.css'
 function Agrochemical() {
   const { agroquimicos, isActiveEntries, redirectTo } = useContext(DataContext)
   const productsToShow =
-    agroquimicos.length > 15 ? agroquimicos.slice(0, 15) : agroquimicos
+    agroquimicos.length > 15 ? agroquimicos.slice(0, 23) : agroquimicos
 
   return (
     <Layout>
