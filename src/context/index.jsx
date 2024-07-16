@@ -122,6 +122,16 @@ function ProductsFromDbProvider({ children }) {
         console.error('Error obteniendo los datos:', error)
       })
   }, [])
+  useEffect(() => {
+    axiosClient
+      .get('/api/tools')
+      .then((response) => {
+        setTools(response.data)
+      })
+      .catch((error) => {
+        console.error('Error obteniendo los datos:', error)
+      })
+  }, [])
   const [openModal, setOpenModal] = useState(false)
   const closeModal = () => {
     setOpenModal(false)
@@ -159,6 +169,8 @@ function ProductsFromDbProvider({ children }) {
         openModalToAdd,
         agroquimicos,
         setAgroquimicos,
+        tools,
+        setTools,
       }}
     >
       {children}

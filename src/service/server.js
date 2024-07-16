@@ -51,6 +51,20 @@ app.get('/api/agroquimicos', (req, res) => {
   })
 })
 
+// Ruta para obtener datos de la tabla 'tools'
+
+app.get('/api/tools', (req, res) => {
+  const query = 'SELECT * FROM tools_list'
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error ejecutando la consulta:', err)
+      res.status(500).send('Error en el servidor')
+      return
+    }
+    res.json(results)
+  })
+})
+
 app.post('/api/agroquimicos', (req, res) => {
   const {
     Fecha_de_caducidad,

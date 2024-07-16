@@ -15,7 +15,8 @@ import SelectLabels from '../../components/SelectComponent'
 function ToolsEntries() {
   // const { otherTools, openModal, closeModal, redirectTo } =
   //   useContext(ProductsContext)
-  const { otherTools, openModal, closeModal } = useContext(DataContext)
+  const { tools, openModal, closeModal } = useContext(DataContext)
+
   return (
     <Box sx={{ p: 2, height: 'calc(100vh - 125px)' }}>
       <div className="agrochemical-header">
@@ -23,7 +24,7 @@ function ToolsEntries() {
         <SelectLabels />
       </div>
       <div>
-        <TableToolsEntries products={otherTools} />
+        <TableToolsEntries products={tools} />
         <InteractiveButtons basePath="/tools" />
       </div>
       {openModal &&
